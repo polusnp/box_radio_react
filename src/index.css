@@ -21,7 +21,7 @@ font-family: 'Rubik Scribble', system-ui;
 font-family: 'Titillium Web', sans-serif; */
 
 body {
-  font-family: "Rubik Scribble", system-ui;
+  font-family: "Oswald", sans-serif;
 }
 
 body:has(.card[data-color="blue"]:hover) {
