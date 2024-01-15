@@ -37,12 +37,14 @@ function Radio() {
     <div className="radio">
       <div className="filters">
         {filters.map((filter) => {
-          ;<span
-            className={stationFilter === filter ? "selected" : ""}
-            onClick={() => setStationFilter(filter)}
-          >
-            {filter}
-          </span>
+          return (
+            <span
+              className={stationFilter === filter ? "selected" : ""}
+              onClick={() => setStationFilter(filter)}
+            >
+              {filter}
+            </span>
+          )
         })}
       </div>
       <div className="stations">
@@ -68,7 +70,17 @@ function Radio() {
                     </div>
                   </div>
                 </div>
-                <AudioPlayer className="player" src={station.urlResolved} />
+                <AudioPlayer
+                  className="player"
+                  src={station.urlResolved}
+                  showJumpControls={false}
+                  layout="stacked"
+                  customProgressBarSection={[]}
+                  customControlsSection={["MAIN_CONTROLS", "VOLUME_CONTROLS"]}
+                  autoPlayAfterSrcChange={false}
+                  showFilledVolume={true}
+                  volume={0.3}
+                />
               </div>
             )
           })}

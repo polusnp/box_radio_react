@@ -4,11 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --blue-rgb: 237 245 255;
-  --green-rgb: 125 161 35;
-}
-
 /* font-family: 'Audiowide', sans-serif;
 font-family: 'Bebas Neue', sans-serif;
 font-family: 'Black Ops One', system-ui;
@@ -22,23 +17,44 @@ font-family: 'Titillium Web', sans-serif; */
 
 body {
   font-family: "Oswald", sans-serif;
+
+  /* background: rgb(40, 31, 53);
+  background: linear-gradient(to right, rgb(40, 31, 53), rgb(61, 46, 83)); */
+  color: black;
 }
 
-body:has(.card[data-color="blue"]:hover) {
-  background-color: rgb(var(--blue-rgb) / 25%);
+h1 {
+  margin: 1em 0 0 0;
+  font-size: 3rem;
 }
 
-body:has(.card[data-color="green"]:hover) {
-  background-color: rgb(var(--green-rgb) / 25%);
+h2 {
+  margin-bottom: 2em;
+}
+
+span {
+  background-color: #9c9198;
+  margin: 0.25em;
+  font-weight: 800;
+  border: 3px solid #9c9198;
+  border-radius: 10px;
+  padding: 0.25em 0.75em;
+}
+
+span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #620942;
+  /* background: linear-gradient(to bottom right, #620942, #d3d4ca); */
 }
 
 @layer utilities {
-  .max-container {
-    @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)];
+  .radio {
+    @apply max-w-[60em] w-full;
   }
 
-  .head-text {
-    @apply sm:text-5xl text-3xl font-semibold sm:leading-snug font-poppins;
+  .filters {
+    @apply flex justify-center flex-wrap mb-[2em] text-xl w-full;
   }
 
   .subhead-text {
@@ -46,7 +62,7 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .blue-gradient_text {
-    @apply bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#620942] to-[#13032c] bg-clip-text text-transparent;
   }
 
   .input {
