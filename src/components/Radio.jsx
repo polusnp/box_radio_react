@@ -51,23 +51,18 @@ function Radio() {
         {stations &&
           stations.map((station, index) => {
             return (
-              <div className="flex flex-col" key={index}>
-                {/* className="station" */}
-                <div className="flex justify-center">
-                  <div className="">
-                    <img
-                      className="logo"
-                      src={station.favicon}
-                      alt="station-logo"
-                      onError={setDefaultSrc}
-                    />
-                    <div>
-                      <div className="name">{station.name}</div>
-                      <div className="">{station.country}</div>
-                      <div>
-                        {station.bitrate ? `${station.bitrate} Mhz` : ""}
-                      </div>
-                    </div>
+              <div className="station bg-custom-gray" key={index}>
+                <div className="stationName">
+                  <img
+                    className="logo"
+                    src={station.favicon}
+                    alt="station-logo"
+                    onError={setDefaultSrc}
+                  />
+                  <div className="name">
+                    <div>{station.name}</div>
+                    <div>{station.country}</div>
+                    <div>{station.bitrate ? `${station.bitrate} Mhz` : ""}</div>
                   </div>
                 </div>
                 <AudioPlayer

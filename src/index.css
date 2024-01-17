@@ -33,19 +33,30 @@ h2 {
 }
 
 span {
-  background-color: #9c9198;
   margin: 0.25em;
   font-weight: 800;
-  border: 3px solid #9c9198;
-  border-radius: 10px;
   padding: 0.25em 0.75em;
+  background: rgba(200, 200, 200, 0.6);
+  border-radius: 0.5rem;
 }
 
 span:hover {
   cursor: pointer;
   text-decoration: underline;
-  color: #620942;
+  /* color: #620942; */
+  background: rgba(98, 9, 66, 0.5);
   /* background: linear-gradient(to bottom right, #620942, #d3d4ca); */
+}
+
+img {
+  display: block;
+  width: 80px;
+  height: 80px;
+}
+
+.selected {
+  text-decoration: underline;
+  color: #620942;
 }
 
 @layer utilities {
@@ -57,24 +68,24 @@ span:hover {
     @apply flex justify-center flex-wrap mb-[2em] text-xl w-full;
   }
 
-  .subhead-text {
-    @apply font-semibold sm:text-3xl text-xl relative font-poppins;
+  .stations {
+    @apply flex justify-around items-center flex-row flex-wrap;
   }
 
-  .blue-gradient_text {
-    @apply bg-gradient-to-r from-[#620942] to-[#13032c] bg-clip-text text-transparent;
+  .station {
+    @apply text-xl m-4 rounded-xl p-2 flex flex-col justify-center items-center w-48;
   }
 
-  .input {
-    @apply bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2.5 font-normal shadow-card;
+  .station:hover {
+    @apply border-[#620942] cursor-pointer bg-custom-gray-hover;
   }
 
-  .textarea {
-    @apply block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-200 focus:ring-blue-500 focus:border-blue-500 mt-2.5 font-normal shadow-card;
+  .stationName {
+    @apply flex flex-col my-2 w-full items-center justify-start;
   }
 
-  .btn {
-    @apply text-white bg-gradient-to-r from-[#00c6ff] to-[#0072ff] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center;
+  .name {
+    @apply w-full text-center text-white;
   }
 
   /* .header {
