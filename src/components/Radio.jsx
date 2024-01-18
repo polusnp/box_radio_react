@@ -19,18 +19,43 @@ function Radio() {
     })
   }, [stationFilter])
 
+  // const setupApi = async (stationFilter) => {
+  //   const api = new RadioBrowserApi(fetch.bind(window), "Radio App")
+  //   const stations = await api
+  //     .searchStations({
+  //       language: "english",
+  //       tag: stationFilter,
+  //       limit: 50,
+  //     })
+  //     .then((data) => {
+  //       return data
+  //     })
+  //   return stations
+  // }
+
   const setupApi = async (stationFilter) => {
+    const proxyUrl = "https://cors-anywhere.herokuapp.com/"
+    const apiUrl = "http://all.api.radio-browser.info/json/servers"
+    const fullUrl = proxyUrl + apiUrl
+
     const api = new RadioBrowserApi(fetch.bind(window), "Radio App")
-    const stations = await api
-      .searchStations({
-        language: "english",
-        tag: stationFilter,
-        limit: 50,
-      })
-      .then((data) => {
-        return data
-      })
-    return stations
+
+    try {
+      const stations = await api
+        .searchStations({
+          language: "english",
+          tag: stationFilter,
+          limit: 50,
+          url: fullUrl,
+        })
+        .then((data) => {
+          return data
+        })
+      return stations
+    } catch (error) {
+      console.error("Error fetching stations:", error)
+      throw error
+    }
   }
 
   return (
