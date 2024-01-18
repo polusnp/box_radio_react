@@ -34,7 +34,7 @@ function Radio() {
   // }
 
   const setupApi = async (stationFilter) => {
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/"
+    const proxyUrl = "https://crossorigin.me/"
     const apiUrl = "http://all.api.radio-browser.info/json/servers"
     const fullUrl = proxyUrl + apiUrl
 
