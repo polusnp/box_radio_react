@@ -36,9 +36,10 @@ function Radio() {
   return (
     <div className="radio">
       <div className="filters">
-        {filters.map((filter) => {
+        {filters.map((filter, index) => {
           return (
             <span
+              key={index}
               className={stationFilter === filter ? "selected" : ""}
               onClick={() => setStationFilter(filter)}
             >
@@ -60,9 +61,21 @@ function Radio() {
                     onError={setDefaultSrc}
                   />
                   <div className="name">
-                    <div>{station.name}</div>
-                    <div>{station.country}</div>
-                    <div>{station.bitrate ? `${station.bitrate} Mhz` : ""}</div>
+                    <div>
+                      {station.name.length > 20
+                        ? `${station.name.slice(0, 20)}...`
+                        : station.name}
+                    </div>
+                    <div>
+                      {station.country
+                        ? `${station.country.slice(0, 18)}`
+                        : "unknown country"}
+                    </div>
+                    <div>
+                      {station.bitrate
+                        ? `${station.bitrate} Mhz`
+                        : "unknown Mhz"}
+                    </div>
                   </div>
                 </div>
                 <AudioPlayer

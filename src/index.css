@@ -54,6 +54,10 @@ img {
   height: 80px;
 }
 
+audio {
+  width: 100%;
+}
+
 .selected {
   text-decoration: underline;
   color: #620942;
@@ -73,48 +77,20 @@ img {
   }
 
   .station {
-    @apply text-xl m-4 rounded-xl p-2 flex flex-col justify-center items-center w-48;
+    @apply sm:text-lg text-sm m-4 rounded-xl sm:p-2 p-0 flex flex-col justify-center items-center sm:w-48 sm:h-80 w-40 h-60;
   }
 
   .station:hover {
-    @apply border-[#620942] cursor-pointer bg-custom-gray-hover;
+    @apply cursor-pointer bg-custom-gray-hover;
   }
 
   .stationName {
-    @apply flex flex-col my-2 w-full items-center justify-start;
+    @apply flex flex-col my-2 w-full items-center justify-start gap-4;
   }
 
   .name {
     @apply w-full text-center text-white;
   }
-
-  /* .header {
-    @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-5xl mx-auto absolute top-0 bg-transparent z-10 right-0 left-0;
-  }
-
-  .footer {
-    @apply max-w-5xl mx-auto sm:px-16 pb-6 px-8 flex flex-col gap-7;
-  }
-
-  .footer-container {
-    @apply flex flex-wrap gap-7 items-center justify-between;
-  }
-
-  .info-box {
-    @apply mx-5 relative flex text-white flex-col gap-3 max-w-2xl neo-brutalism-blue pt-4 pb-12 px-8;
-  }
-
-  .neo-btn {
-    @apply py-3 px-6 rounded-lg text-blue-500 text-center font-semibold sm:w-1/2 w-[90%] -bottom-5 absolute mx-auto right-0 left-0 flex justify-center items-center gap-3;
-  }
-
-  .cta {
-    @apply w-full flex items-center md:flex-row flex-col sm:mt-16 mt-8 gap-7;
-  }
-
-  .cta-text {
-    @apply text-black-500 font-extrabold flex-1 text-3xl max-md:text-center;
-  } */
 }
 
 .glassmorphism {
@@ -125,15 +101,27 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.logo {
-  border-radius: 8.889px;
-  background: #fff;
-  box-shadow: 0px 10px 35px -4px rgba(67, 83, 255, 0.15),
-    0px 1.5px 4px -1px rgba(67, 83, 255, 0.2);
+/* player styling */
+
+.rhap_container.player {
+  background-color: rgba(30, 30, 30, 0.8);
+  border-radius: 15px;
+  display: flex;
+  justify-items: center;
 }
 
-.block-container {
-  position: relative;
-  transition: 250ms;
-  perspective: 500px;
+.rhap_stacked .rhap_controls-section {
+  margin-top: 0;
+}
+
+.rhap_controls-section .rhap_volume-controls {
+  justify-content: center;
+}
+
+.rhap_controls-section .rhap_main-controls button[aria-label="Play"] svg path {
+  fill: rgb(235, 235, 235);
+}
+
+.rhap_controls-section .rhap_main-controls button[aria-label="Pause"] svg path {
+  fill: #620942;
 }
