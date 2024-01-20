@@ -2,12 +2,14 @@
   "name": "box_radio_react",
   "private": true,
   "version": "0.0.0",
+  "homepage": "http://radiobox.github.io/my-react-app",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
     "radio-browser": "^2.2.3",
