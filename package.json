@@ -12,6 +12,7 @@
     "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
+    "iradio.player.js": "^2.0.12",
     "radio-browser": "^2.2.3",
     "radio-browser-api": "^6.0.1",
     "react": "^18.2.0",

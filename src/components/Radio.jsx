@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { RadioBrowserApi } from "radio-browser-api"
+import { RadioPlayer } from "iradio.player.js"
 import AudioPlayer from "react-h5-audio-player"
 import "react-h5-audio-player/lib/styles.css"
 import defaultImage from "../assets/logo_fallback.png"
@@ -19,43 +19,20 @@ function Radio() {
     })
   }, [stationFilter])
 
-  // const setupApi = async (stationFilter) => {
-  //   const api = new RadioBrowserApi(fetch.bind(window), "Radio App")
-  //   const stations = await api
-  //     .searchStations({
-  //       language: "english",
-  //       tag: stationFilter,
-  //       limit: 50,
-  //     })
-  //     .then((data) => {
-  //       return data
-  //     })
-  //   return stations
-  // }
-
   const setupApi = async (stationFilter) => {
-    const proxyUrl = "https://crossorigin.me/"
-    const apiUrl = "http://all.api.radio-browser.info/json/servers"
-    const fullUrl = proxyUrl + apiUrl
+    const api = new RadioPlayer(fetch.bind(window), "Radio App")
 
-    const api = new RadioBrowserApi(fetch.bind(window), "Radio App")
-
-    try {
-      const stations = await api
-        .searchStations({
-          language: "english",
-          tag: stationFilter,
-          limit: 50,
-          url: fullUrl,
-        })
-        .then((data) => {
-          return data
-        })
-      return stations
-    } catch (error) {
-      console.error("Error fetching stations:", error)
-      throw error
-    }
+    const stations = await api
+      .searchStations({
+        language: "english",
+        tag: stationFilter,
+        limit: 50,
+        url: "https://de1.api.radio-browser.info/json/servers",
+      })
+      .then((data) => {
+        return data
+      })
+    return stations
   }
 
   return (
