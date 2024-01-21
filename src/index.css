@@ -43,9 +43,7 @@ span {
 span:hover {
   cursor: pointer;
   text-decoration: underline;
-  /* color: #620942; */
-  background: rgba(98, 9, 66, 0.5);
-  /* background: linear-gradient(to bottom right, #620942, #d3d4ca); */
+  color: #620942;
 }
 
 img {
@@ -78,10 +76,6 @@ audio {
 
   .station {
     @apply sm:text-lg text-sm m-4 rounded-xl sm:p-2 p-0 flex flex-col justify-center items-center sm:w-48 sm:h-80 w-40 h-60;
-  }
-
-  .station:hover {
-    @apply cursor-pointer bg-custom-gray-hover;
   }
 
   .stationName {
